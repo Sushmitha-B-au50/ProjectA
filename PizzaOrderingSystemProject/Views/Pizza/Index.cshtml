@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PizzaOrderingSystemAPI.Models.Pizza>
+@*@{
+        ViewData["Title"] = "Index";
+    }*@
+
+<img src="~/images/logo.jpg" height="100" width="100">
+<h1 style="text-align:center">
+    <font face="lacto" size="6" color="black">Just Pizza! </font>
+</h1>
+
+<link rel="stylesheet" href="~/css/Index.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="image">
+    <img src="~/images/Margherita.jpg" />&nbsp;&nbsp;&nbsp;
+
+    <img src="~/images/farmhouse.jpg" />&nbsp;&nbsp;&nbsp;
+
+    <img src="~/images/veggie-deluxe.jpg" />
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="grid-container">
+        <div class="row-cols-lg-3">
+
+            @Html.DisplayFor(modelItem => item.Name)
+            <br />
+            @Html.DisplayNameFor(model => model.Crust)
+
+            @Html.DisplayFor(modelItem => item.Crust)
+            <br />
+
+            @Html.DisplayNameFor(model => model.Rate)
+
+            @Html.DisplayFor(modelItem => item.Rate)
+            <br />
+
+            @Html.DisplayNameFor(model => model.IsVeg)
+
+            @Html.DisplayFor(modelItem => item.IsVeg) <br />
+            <a asp-action="Create" asp-route-id="@item.PizzaId" class="btn btn-primary" role="button"> Add</a>
+        </div>
+    </div>
+
+}
+<div class="image2">
+
+    <img src="~/images/Chicken-Sausage-Pizza.jpg" />&nbsp;&nbsp;&nbsp;
+
+    <img src="~/images/chickenpizza.jpg" />
+
+    <img src="~/images/chicken tikka.jpg" />
+</div>
+

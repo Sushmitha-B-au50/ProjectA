@@ -1,0 +1,74 @@
+﻿@model PizzaOrderingSystemAPI.Models.CustomerDetails
+
+    <img src="~/images/logo.jpg" height="100" width="100" />
+
+    <h4>CustomerDetails</h4>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Toppings" class="control-label"></label>
+                    @Html.DropDownList("Toppings", new List<SelectListItem>{
+                 new SelectListItem{ Value = "Pepperoni   Rs.40", Text ="Pepperoni   Rs.40"},
+                 new SelectListItem{ Value = "Mushrooms   Rs.60", Text ="Mushrooms   Rs.60"},
+                  new SelectListItem{ Value = "Extra cheese  Rs.80", Text ="Extra cheese  Rs.80"},
+                  new SelectListItem{ Value = "Black olives  Rs.75", Text ="Black olives  Rs.75"},
+                  new SelectListItem{ Value = "Green peppers Rs.55", Text ="Green peppers Rs.55"},
+                }, "Toppings", new { @class = "form-control" }
+                 )
+                    <span asp-validation-for="Toppings" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    @Html.DropDownList("Quantity", new List<SelectListItem>{
+                   new SelectListItem{ Value = "1" , Text ="1"},
+                   new SelectListItem{ Value = "2", Text ="2"},
+                    new SelectListItem{ Value = "3", Text ="3"},
+                    new SelectListItem{ Value = "4", Text ="4"},
+                    new SelectListItem{ Value = "5", Text ="5"},
+                  }, "Quantity", new { @class = "form-control" }
+                   )
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Crust" class="control-label"></label>
+                    @Html.DropDownList("Crust", new List<SelectListItem>
+                       {
+                       new SelectListItem{ Value = "Chicago Deep Dish", Text ="Chicago Deep Dish"},
+                       new SelectListItem{ Value = "Cheese-Stuffed Crust", Text ="Cheese-Stuffed Crust"},
+                       new SelectListItem{ Value = "Pizza Bagels", Text ="Pizza Bagels"},
+                       new SelectListItem{ Value = "Thin Crust", Text ="Thin Crust"},
+                       new SelectListItem{ Value = "Neapolitan Crust", Text ="Neapolitan Crust"},
+                       }, "Crust", new { @class = "form-control" }
+                       )
+                    <span asp-validation-for="Crust" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Delivery" class="control-label"></label>
+                    <input asp-for="Delivery" class="form-control" required />
+                    <span asp-validation-for="Delivery" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <textarea asp-for="Address" class="form-control" required ></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input length="10" pattern="[1-9]{1}[0-9]{9}"  title="Please enter exactly 10 digits" asp-for="PhoneNumber" class="form-control" required />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Order Now" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-danger">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
